@@ -15,6 +15,10 @@ const config: Config = {
       fontFamily: {
         inter: ["var(--font-inter)"],
       },
+      screens: {
+        'max-md': {'max': '850px'},
+        'min-md': {'min': '851px'},
+      },
     },
   },
   plugins: [],
