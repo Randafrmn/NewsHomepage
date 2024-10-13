@@ -2,21 +2,34 @@
 
 "use client";
 
-import { useState } from "react";
+import { useState, useRef, useEffect } from "react";
+import React from 'react';
 import { AnimatePresence, MotionConfig, motion } from "framer-motion";
 
 export default function Navbar() {
 	const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+	const mobileMenuRef = useRef<HTMLDivElement | null>(null);
+	const hamburgerRef = useRef<HTMLButtonElement | null>(null);
 
-	function openMenu() {
-		setIsMobileMenuOpen(!isMobileMenuOpen);
+    function openMenu() {
+        setIsMobileMenuOpen(prevState => !prevState);
+    }
+
+	useEffect(() => {
+        function handleClickOutside(event: MouseEvent) {
+            const isOutsideMenu = mobileMenuRef.current && !mobileMenuRef.current.contains(event.target as Node);
+            const isHamburgerButton = hamburgerRef.current && hamburgerRef.current.contains(event.target as Node);
+            if (isOutsideMenu && !isHamburgerButton) {
+                setIsMobileMenuOpen(false);
+            }
+			
+        }
 	
-		if (!isMobileMenuOpen) {
-			document.body.style.overflowY = "hidden";
-		} else {
-			document.body.style.overflowY = "auto";
-		}
-	}
+		document.addEventListener("mousedown", handleClickOutside);
+		return () => {
+			document.removeEventListener("mousedown", handleClickOutside);
+		};
+	}, [mobileMenuRef, hamburgerRef]);
 
 	return (
 		<header className="sticky top-0 z-50 md:px-36 px-4 bg-[#fffdfa] overflow-y-hidden">
@@ -50,84 +63,84 @@ export default function Navbar() {
 					</a>
 				</div>
 				<div className="sm:hidden">
-					<button className= "z-30 relative" onClick={openMenu}>
+					<button ref={hamburgerRef} className= "z-30 relative" onClick={openMenu}>
 						<Hamburger isOpen={isMobileMenuOpen} />
 					</button>
 				</div>
 			</nav>
 			<AnimatePresence>
-				{isMobileMenuOpen ? <MobileMenu /> : null}
+				{isMobileMenuOpen ? <MobileMenu ref={mobileMenuRef} /> : null}
 			</AnimatePresence>
 		</header>
 	);
 };
 
-const MobileMenu = () => {
+const MobileMenu = React.forwardRef<HTMLDivElement, React.PropsWithChildren<object>>(function MobileMenu(_, ref) {
 	return (
-	  <div className="fixed sm:hidden flex flex-col justify-between pt-18 z-20 top-0 right-0 w-3/5 h-screen">
-		<motion.div
-		  className="absolute top-0 bottom-0 left-0 right-0 bg-white"
-		  initial={{
-			x: "120%",
-		  }}
-		  animate={{
-			x: 0,
-		  }}
-		  exit={{
-			x: "120%",
-			transition: {
-			  delay: 0.6,
-			},
-		  }}
-		  transition={{
-			type: "spring",
-			stiffness: 300,
-			damping: 40,
-			mass: 1.5,
-		  }}
-		></motion.div>
-		<motion.ul
-		  transition={{
-			delayChildren: 0.15,
-		  }}
-		  className="relative py-6 px-4 flex flex-col gap-4 heading-2"
-		>
-		  {["Home", "New", "Popular", "Trending", "Categories"].map((item, index, arr) => (
-			<motion.li
-			  key={index}
-			  variants={{
-				hidden: {
-				  y: 100,
-				  opacity: 0,
-				  transition: {
-					delay: (arr.length - index) * 0.15,
-				  },
-				},
-				visible: {
-				  y: 0,
-				  opacity: 1,
-				  transition: {
-					delay: index * 0.15,
-				  },
-				},
-			  }}
-			  initial={"hidden"}
-			  animate={"visible"}
-			  exit={"hidden"}
-			  transition={{
-				type: "spring",
-				stiffness: 300,
-				damping: 40,
-				mass: 0.5,
-			  }}
+		<div ref={ref} className="fixed sm:hidden flex flex-col pt-24 z-20 top-0 right-0 w-3/5 h-screen">
+			<motion.div
+				className="absolute top-0 bottom-0 left-0 right-0 bg-white"
+				initial={{
+					x: "120%",
+				}}
+				animate={{
+					x: 0,
+				}}
+				exit={{
+					x: "120%",
+					transition: {
+						delay: 0.9,
+					},
+				}}
+				transition={{
+					type: "spring",
+					stiffness: 400,
+					damping: 40,
+					mass: 1.5,
+				}}
+			></motion.div>
+			<motion.ul
+				transition={{
+					delayChildren: 0.15,
+				}}
+				className="relative py-6 px-4 flex flex-col gap-6 heading-2"
 			>
-			  <a href="/">{item}</a>
-			</motion.li>
-		  ))}
-		</motion.ul>
-	  </div>
+				{["Home", "New", "Popular", "Trending", "Categories"].map((item, index, arr) => (
+					<motion.li
+						key={index}
+						variants={{
+							hidden: {
+								y: 20,
+								opacity: 0,
+								transition: {
+									delay: (arr.length - index) * 0.15,
+								},
+							},
+							visible: {
+								y: 0,
+								opacity: 1,
+								transition: {
+									delay: index * 0.15,
+								},
+							},
+						}}
+						initial={"hidden"}
+						animate={"visible"}
+						exit={"hidden"}
+						transition={{
+							type: "spring",
+							stiffness: 400,
+							damping: 40,
+							mass: 0.5,
+						}}
+					>
+						<a href="/" className="text-[#00001A] text-base pl-4">{item}</a>
+					</motion.li>
+				))}
+			</motion.ul>
+		</div>
 	);
-  };
+});
 
 const Hamburger = ({ isOpen}: {isOpen: boolean}) => {
 	return (
