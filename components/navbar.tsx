@@ -9,18 +9,18 @@ export default function Navbar() {
 	const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
 
 	function openMenu() {
-		if (isMobileMenuOpen) {
+		setIsMobileMenuOpen(!isMobileMenuOpen);
+	
+		if (!isMobileMenuOpen) {
 			document.body.style.overflowY = "hidden";
 		} else {
 			document.body.style.overflowY = "auto";
 		}
-
-		setIsMobileMenuOpen(!isMobileMenuOpen);
 	}
 
 	return (
 		<header className="sticky top-0 z-50 md:px-36 px-4 bg-[#fffdfa] overflow-y-hidden">
-			<nav className="flex justify-between items-center py-2">
+			<nav className="flex justify-between items-center py-4">
 				{/* Logo */}
 				<div>
 					<svg width="65" height="40" xmlns="http://www.w3.org/2000/svg">
@@ -33,24 +33,24 @@ export default function Navbar() {
 
 				{/* Menu Links */}
 				<div className="flex space-x-4 gap-4 max-sm:hidden">
-					<a href="#" className="">
+					<a href="/" className="">
 						Home
 					</a>
-					<a href="#" className="">
+					<a href="/" className="">
 						New
 					</a>
-					<a href="#" className="">
+					<a href="/" className="">
 						Popular
 					</a>
-					<a href="#" className="">
+					<a href="/" className="">
 						Trending
 					</a>
-					<a href="#" className="">
+					<a href="/" className="">
 						Categories
 					</a>
 				</div>
 				<div className="sm:hidden">
-					<button className="text-white z-30 relative" onClick={openMenu}>
+					<button className= "z-30 relative" onClick={openMenu}>
 						<Hamburger isOpen={isMobileMenuOpen} />
 					</button>
 				</div>
@@ -64,17 +64,17 @@ export default function Navbar() {
 
 const MobileMenu = () => {
 	return (
-	  <div className="fixed sm:hidden flex flex-col justify-between pt-18 z-20 top-0 right-0 w-3/5 h-screen text-clear-white">
+	  <div className="fixed sm:hidden flex flex-col justify-between pt-18 z-20 top-0 right-0 w-3/5 h-screen">
 		<motion.div
 		  className="absolute top-0 bottom-0 left-0 right-0 bg-white"
 		  initial={{
-			y: "-120%",
+			x: "120%",
 		  }}
 		  animate={{
-			y: 0,
+			x: 0,
 		  }}
 		  exit={{
-			y: "-120%",
+			x: "120%",
 			transition: {
 			  delay: 0.6,
 			},
@@ -90,21 +90,21 @@ const MobileMenu = () => {
 		  transition={{
 			delayChildren: 0.15,
 		  }}
-		  className="relative py-6 px-4 flex flex-col gap-8 heading-2"
+		  className="relative py-6 px-4 flex flex-col gap-4 heading-2"
 		>
-		  {["About", "Pricing", "Blog", "Events"].map((item, index, arr) => (
+		  {["Home", "New", "Popular", "Trending", "Categories"].map((item, index, arr) => (
 			<motion.li
 			  key={index}
 			  variants={{
 				hidden: {
-				  x: -100,
+				  y: 100,
 				  opacity: 0,
 				  transition: {
 					delay: (arr.length - index) * 0.15,
 				  },
 				},
 				visible: {
-				  x: 0,
+				  y: 0,
 				  opacity: 1,
 				  transition: {
 					delay: index * 0.15,
@@ -133,7 +133,7 @@ const Hamburger = ({ isOpen}: {isOpen: boolean}) => {
 	return (
 		<div
 			aria-hidden
-			className="relative flex flex-col w-6 h-[18px] items-center"
+			className="relative flex flex-col w-10 h-[18px] items-center"
 		>
 			<MotionConfig
 			transition={{
@@ -152,7 +152,7 @@ const Hamburger = ({ isOpen}: {isOpen: boolean}) => {
 				rotate: isOpen ? -45 : 0,
 				top: isOpen ? 8 : 0,
 				}}
-				className="absolute  w-6 h-[2px] rounded-full bg-black"
+				className="absolute  w-10 h-[2.5px] bg-black"
 			/>
 			<motion.span
 				style={{
@@ -163,7 +163,7 @@ const Hamburger = ({ isOpen}: {isOpen: boolean}) => {
 				scaleX: isOpen ? 0.1 : 1,
 				top: 8,
 				}}
-				className="absolute w-6 h-[2px] rounded-full bg-black"
+				className="absolute w-10 h-[2.5px] bg-black"
 			/>
 			<motion.span
 				initial={false}
@@ -174,7 +174,7 @@ const Hamburger = ({ isOpen}: {isOpen: boolean}) => {
 				rotate: isOpen ? 45 : 0,
 				top: isOpen ? 8 : 16,
 				}}
-				className="absolute w-6 h-[2px] rounded-full bg-black"
+				className="absolute w-10 h-[2.5px] bg-black"
 			/>
 			</MotionConfig>
 		</div>
