@@ -22,7 +22,7 @@ export default function Home() {
 
 					<div className="col-span-2 flex md:flex-row flex-col md:justify-between md:gap-16 gap-2 md:mb-0 mb-6">
 						<div className="w-full">
-							<div className="md:w-64 w-full">
+							<div className="md:w-64 w-72">
 								<span className="md:text-[3rem] md:leading-[3rem] text-[2.5rem] leading-[2.5rem] font-extrabold">
 									The Bright Future of Web 3.0?
 								</span>
