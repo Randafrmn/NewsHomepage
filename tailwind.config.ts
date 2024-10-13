@@ -16,8 +16,14 @@ const config: Config = {
         inter: ["var(--font-inter)"],
       },
       screens: {
-        'max-md': {'max': '850px'},
-        'min-md': {'min': '851px'},
+        'sm': '576px',
+        // => @media (min-width: 576px) { ... }
+  
+        'md': '767px',
+        // => @media (min-width: 960px) { ... }
+  
+        'lg': '1023px',
+        // => @media (min-width: 1440px) { ... }
       },
     },
   },

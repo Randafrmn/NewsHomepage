@@ -35,7 +35,7 @@ export default function Navbar() {
 	}, [mobileMenuRef, hamburgerRef]);
 
 	return (
-		<header className="sticky container mx-auto top-0 z-50 max-md:px-4 px-36 bg-[#fffdfa] overflow-y-hidden">
+		<header className="sticky container mx-auto top-0 z-50 px-4 lg:px-36 md:px-4 bg-[#fffdfa] overflow-y-hidden">
 			<nav className="flex justify-between items-center py-4">
 				{/* Logo */}
 				<div>
@@ -48,7 +48,7 @@ export default function Navbar() {
 				</div>
 
 				{/* Menu Links */}
-				<div className="flex space-x-4 gap-4 max-md:hidden">
+				<div className="space-x-4 gap-4 hidden lg:flex">
 					<a href="/" className="hover:text-[#f15e50]">
 						Home
 					</a>
@@ -65,7 +65,7 @@ export default function Navbar() {
 						Categories
 					</a>
 				</div>
-				<div className="min-md:hidden">
+				<div className="lg:hidden">
 					<button
 						ref={hamburgerRef}
 						className="z-30 relative"
@@ -89,7 +89,7 @@ const MobileMenu = React.forwardRef<
 	return (
 		<div
 			ref={ref}
-			className="fixed min-md:hidden flex flex-col pt-32 z-20 top-0 right-0 w-3/5 h-screen"
+			className="fixed lg:hidden flex flex-col pt-32 z-20 top-0 right-0 w-3/5 h-screen"
 		>
 			<motion.div
 				className="absolute top-0 bottom-0 left-0 right-0 bg-white"

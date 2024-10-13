@@ -8,8 +8,10 @@ export default function Home() {
 	return (
 		<main>
 			<Navbar />
-			<div className="container mx-auto max-md:px-4 px-36 pb-8 pt-4">
-				<div className="grid min-md:grid-rows-[auto_auto] grid-rows-[auto_auto_auto] min-md:grid-flow-col gap-4">
+
+			<div className="container mx-auto px-4 lg:px-36 md:px-4 pb-8 pt-4">
+				{/* wadah lama */}
+				<div className="grid md:grid-cols-3 grid-rows-[auto_auto_auto] md:grid-flow-col gap-4">
 					<div
 						className="col-span-2 bg-red-600 md:h-[300px] h-[300px]"
 						style={{
@@ -43,7 +45,7 @@ export default function Home() {
 						</div>
 					</div>
 
-					<div className="md:row-span-2 col-span-2 md:col-span-2 bg-[#00001a] w-full p-4">
+					<div className="md:row-span-2 col-span-2 bg-[#00001a] w-full p-4">
 						<div className="flex flex-col gap-4 justify-center">
 							<span className="text-[2rem] leading-[2.5rem] font-extrabold text-[#e9ab53]">
 								New
@@ -52,28 +54,58 @@ export default function Home() {
 								<span className="text-[1rem] leading-[2.5rem] font-bold text-[#fffdfa]">
 									Hydrogen VS Electric Cars
 								</span>
-								<p className="pb-6">Will hydrogen-fueled cars ever catch up to EVs?</p>
+								<p className="pb-6">
+									Will hydrogen-fueled cars ever catch up to EVs?
+								</p>
 							</div>
 							<div className="border-b border-[#5d5f79] mb-2">
 								<span className="text-[1rem] leading-[2.5rem] font-bold text-[#fffdfa]">
 									The Downsides of AI Artistry
 								</span>
-								<p className="pb-6">What are the possible adverse effects of on-demand AI image generation?</p>
+								<p className="pb-6">
+									What are the possible adverse effects of on-demand AI image
+									generation?
+								</p>
 							</div>
 							<div>
 								<span className="text-[1rem] leading-[2.5rem] font-bold text-[#fffdfa]">
 									Is VC Funding Drying Up?
 								</span>
-								<p>Private funding by VC firms is down 50% YOY. We take a look at what that means.</p>
+								<p>
+									Private funding by VC firms is down 50% YOY. We take a look at
+									what that means.
+								</p>
 							</div>
 						</div>
 					</div>
 				</div>
-				{/* <div className="grid md:grid-cols-[auto_auto_auto] grid-rows-[auto_auto_auto] gap-4">
-					<div className="bg-red-600 h-[350px]"></div>
-					<div className="bg-red-600 h-[350px]"></div>
-					<div className="bg-red-600 h-[350px]"></div>
-				</div> */}
+
+				{/* Wadah baru */}
+				<div className="grid lg:grid-cols-3 grid-cols-1 auto-rows-[300px] gap-6 text-5xl w-full">
+					<div
+						className="col-span-2 md:h-[300px] h-[300px]"
+						style={{
+							backgroundImage: `url(${backgroundImage})`,
+							backgroundSize: "cover",
+							backgroundPosition: "center",
+							backgroundRepeat: "no-repeat",
+						}}
+					></div>
+					<div className="bg-red-700 lg:row-span-2 lg:col-auto row-auto col-span-2 order-5 lg:order-none">
+						2
+					</div>
+					<div className="bg-red-700 col-span-2 lg:col-auto">3</div>
+					<div className="bg-red-700 col-span-2 lg:col-auto">4</div>
+					<div className="bg-red-700 col-span-2 lg:col-auto order-6 lg:order-none">
+						5
+					</div>
+					<div className="bg-red-700 col-span-2 lg:col-auto order-7 lg:order-none">
+						6
+					</div>
+					<div className="bg-red-700 col-span-2 lg:col-auto order-8 lg:order-none">
+						7
+					</div>
+				</div>
 			</div>
 		</main>
 	);
