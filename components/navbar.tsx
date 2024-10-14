@@ -36,7 +36,7 @@ export default function Navbar() {
 
   return (
     <header className="sticky container mx-auto top-0 z-50 px-4 lg:px-36 md:px-4 bg-[#fffdfa] overflow-y-hidden">
-      <nav className="flex justify-between items-center py-2">
+      <nav className="flex justify-between items-center py-3">
         {/* Logo */}
         <div>
           <svg width="65" height="40" xmlns="http://www.w3.org/2000/svg">
