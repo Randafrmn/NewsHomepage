@@ -122,6 +122,9 @@ export default function Home() {
                   backgroundColor: "#00001a",
                   color: "#fffdfa",
                 }}
+                whileTap={{
+                  color: "#fffdfa",
+                }}
                 transition={{ duration: 0.3, ease: "easeInOut" }}
               >
                 READ MORE
