@@ -9,21 +9,22 @@ const config: Config = {
   theme: {
     extend: {
       colors: {
-        background: "var(--background)",
-        foreground: "var(--foreground)",
+        softOrange: "hsl(35, 77%, 62%)",
+        softRed: "hsl(5, 85%, 63%)",
+        offWhite: 'hsl(36, 100%, 99%)',
+        grayishBlue: 'hsl(233, 8%, 79%)',
+        darkGrayishBlue: 'hsl(236, 13%, 42%)',
+        veryDarkBlue: 'hsl(240, 100%, 5%)',
       },
       fontFamily: {
         inter: ["var(--font-inter)"],
       },
       screens: {
         'sm': '576px',
-        // => @media (min-width: 576px) { ... }
-  
+
         'md': '767px',
-        // => @media (min-width: 960px) { ... }
   
         'lg': '1023px',
-        // => @media (min-width: 1440px) { ... }
       },
     },
   },
