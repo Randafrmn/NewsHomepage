@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import Navbar from "../components/navbar";
 import "./globals.css";
 
 import { Inter } from "next/font/google";
@@ -24,7 +25,10 @@ export default function RootLayout({
       <head>
         <link rel="icon" href="/images/favicon-32x32.png" />
       </head>
-      <body className="bg-offWhite">{children}</body>
+      <body className="bg-offWhite">
+        <Navbar />
+        {children}
+      </body>
     </html>
   );
 }

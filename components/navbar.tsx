@@ -58,6 +58,9 @@ export default function Navbar() {
                 whileHover={{
                   color: "#f15e50",
                 }}
+                whileTap={{ 
+                  color: "#f15e50",
+                }}
                 transition={{ duration: 0.2, ease: "easeInOut" }}
               >
                 {item}

@@ -1,7 +1,6 @@
 /** @format */
 "use client";
 
-import Navbar from "../components/navbar";
 import { useState, useEffect } from "react";
 import { motion } from "framer-motion";
 
@@ -32,11 +31,7 @@ export default function Home() {
   }, [images.mobileBackgroundImage, images.backgroundImageDesktop]);
 
   return (
-    <main>
-      <Navbar />
-
       <div className="container mx-auto px-4 lg:px-36 md:px-4 pb-8 pt-4">
-        {/* Wadah baru */}
         <div className="grid lg:grid-cols-3 grid-cols-1 auto-rows-auto gap-6 text-5xl w-full">
           <div
             className="col-span-2 md:h-[260px] h-[300px]"
@@ -59,6 +54,9 @@ export default function Home() {
                   whileHover={{
                     color: "#e9ab53",
                   }}
+                  whileTap={{
+                    color: "#e9ab53",
+                  }}
                   transition={{ duration: 0.2, ease: "easeInOut" }}
                 >
                   Hydrogen VS Electric Cars
@@ -72,6 +70,9 @@ export default function Home() {
                   href="/"
                   className="text-[1rem] leading-[2.5rem] font-bold text-offWhite"
                   whileHover={{
+                    color: "#e9ab53",
+                  }}
+                  whileTap={{
                     color: "#e9ab53",
                   }}
                   transition={{ duration: 0.2, ease: "easeInOut" }}
@@ -88,6 +89,9 @@ export default function Home() {
                   href="/"
                   className="text-[1rem] leading-[2.5rem] font-bold text-offWhite"
                   whileHover={{
+                    color: "#e9ab53",
+                  }}
+                  whileTap={{
                     color: "#e9ab53",
                   }}
                   transition={{ duration: 0.2, ease: "easeInOut" }}
@@ -115,8 +119,7 @@ export default function Home() {
                 the power of the platforms back into the hands of the people.
                 But is it really fulfilling its promise?
               </p>
-              <motion.a
-                href="/"
+              <motion.button
                 className="bg-softRed text-veryDarkBlue px-7 py-2 font-bold text-sm max-w-max inline-block tracking-widest"
                 whileHover={{
                   backgroundColor: "#00001a",
@@ -129,7 +132,7 @@ export default function Home() {
                 transition={{ duration: 0.3, ease: "easeInOut" }}
               >
                 READ MORE
-              </motion.a>
+              </motion.button>
             </div>
           </div>
           <div className="col-span-2 lg:col-auto order-6 lg:order-none lg:mt-6 mt-0">
@@ -149,6 +152,9 @@ export default function Home() {
                   href="/"
                   className="text-[1rem] font-bold text-veryDarkBlue"
                   whileHover={{
+                    color: "#f15e50",
+                  }}
+                  whileTap={{
                     color: "#f15e50",
                   }}
                   transition={{ duration: 0.2, ease: "easeInOut" }}
@@ -181,6 +187,9 @@ export default function Home() {
                   whileHover={{
                     color: "#f15e50",
                   }}
+                  whileTap={{
+                    color: "#f15e50",
+                  }}
                   transition={{ duration: 0.2, ease: "easeInOut" }}
                 >
                   Top 10 Laptops of 2022
@@ -211,6 +220,9 @@ export default function Home() {
                   whileHover={{
                     color: "#f15e50",
                   }}
+                  whileTap={{
+                    color: "#f15e50",
+                  }}
                   transition={{ duration: 0.2, ease: "easeInOut" }}
                 >
                   The Growth of Gaming
@@ -223,6 +235,5 @@ export default function Home() {
           </div>
         </div>
       </div>
-    </main>
   );
 }
