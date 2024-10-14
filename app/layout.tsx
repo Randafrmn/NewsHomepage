@@ -24,10 +24,7 @@ export default function RootLayout({
       <head>
         <link rel="icon" href="/images/favicon-32x32.png" />
       </head>
-      <body
-      >
-        {children}
-      </body>
+      <body className="bg-offWhite">{children}</body>
     </html>
   );
 }
