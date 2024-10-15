@@ -35,8 +35,8 @@ export default function Navbar() {
   }, [mobileMenuRef, hamburgerRef]);
 
   return (
-    <header className="sticky container mx-auto top-0 z-50 px-4 lg:px-36 md:px-4 bg-[#fffdfa] overflow-y-hidden">
-      <nav className="flex justify-between items-center py-3">
+    <header className="container sticky top-0 z-50 mx-auto overflow-y-hidden bg-[#fffdfa] px-4 md:px-4 lg:px-36">
+      <nav className="flex items-center justify-between py-3">
         {/* Logo */}
         <div>
           <svg width="65" height="40" xmlns="http://www.w3.org/2000/svg">
@@ -48,7 +48,7 @@ export default function Navbar() {
         </div>
 
         {/* Menu Links */}
-        <div className="space-x-4 gap-4 hidden lg:flex">
+        <div className="hidden gap-4 space-x-4 lg:flex">
           {["Home", "New", "Popular", "Trending", "Categories"].map(
             (item, index) => (
               <motion.a
@@ -71,7 +71,7 @@ export default function Navbar() {
         <div className="lg:hidden">
           <button
             ref={hamburgerRef}
-            className="z-30 relative"
+            className="relative z-30"
             onClick={openMenu}
           >
             <Hamburger isOpen={isMobileMenuOpen} />
@@ -92,10 +92,10 @@ const MobileMenu = React.forwardRef<
   return (
     <div
       ref={ref}
-      className="fixed lg:hidden flex flex-col pt-32 z-20 top-0 right-0 w-3/5 h-screen"
+      className="fixed right-0 top-0 z-20 flex h-screen w-3/5 flex-col pt-32 lg:hidden"
     >
       <motion.div
-        className="absolute top-0 bottom-0 left-0 right-0 bg-white"
+        className="absolute bottom-0 left-0 right-0 top-0 bg-white"
         initial={{
           x: "120%",
         }}
@@ -119,7 +119,7 @@ const MobileMenu = React.forwardRef<
         transition={{
           delayChildren: 0.15,
         }}
-        className="relative py-6 px-4 flex flex-col gap-6 heading-2"
+        className="heading-2 relative flex flex-col gap-6 px-4 py-6"
       >
         {["Home", "New", "Popular", "Trending", "Categories"].map(
           (item, index, arr) => (
@@ -151,7 +151,7 @@ const MobileMenu = React.forwardRef<
                 mass: 0.5,
               }}
             >
-              <a href="/" className="text-[#00001A] text-base pl-4">
+              <a href="/" className="pl-4 text-base text-[#00001A]">
                 {item}
               </a>
             </motion.li>
@@ -166,7 +166,7 @@ const Hamburger = ({ isOpen }: { isOpen: boolean }) => {
   return (
     <div
       aria-hidden
-      className="relative flex flex-col w-10 h-[18px] items-center"
+      className="relative flex h-[18px] w-10 flex-col items-center"
     >
       <MotionConfig
         transition={{
@@ -185,7 +185,7 @@ const Hamburger = ({ isOpen }: { isOpen: boolean }) => {
             rotate: isOpen ? -45 : 0,
             top: isOpen ? 8 : 0,
           }}
-          className="absolute  w-10 h-[2.5px] bg-black"
+          className="absolute h-[2.5px] w-10 bg-black"
         />
         <motion.span
           style={{
@@ -196,7 +196,7 @@ const Hamburger = ({ isOpen }: { isOpen: boolean }) => {
             scaleX: isOpen ? 0.1 : 1,
             top: 8,
           }}
-          className="absolute w-10 h-[2.5px] bg-black"
+          className="absolute h-[2.5px] w-10 bg-black"
         />
         <motion.span
           initial={false}
@@ -207,7 +207,7 @@ const Hamburger = ({ isOpen }: { isOpen: boolean }) => {
             rotate: isOpen ? 45 : 0,
             top: isOpen ? 8 : 16,
           }}
-          className="absolute w-10 h-[2.5px] bg-black"
+          className="absolute h-[2.5px] w-10 bg-black"
         />
       </MotionConfig>
     </div>

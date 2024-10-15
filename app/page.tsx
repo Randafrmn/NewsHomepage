@@ -31,10 +31,10 @@ export default function Home() {
   }, [images.mobileBackgroundImage, images.backgroundImageDesktop]);
 
   return (
-    <div className="container mx-auto px-4 lg:px-36 md:px-4 pb-8 pt-4">
-      <div className="grid lg:grid-cols-3 grid-cols-1 auto-rows-auto gap-6 text-5xl w-full">
+    <div className="container mx-auto px-4 pb-8 pt-4 md:px-4 lg:px-36">
+      <div className="grid w-full auto-rows-auto grid-cols-1 gap-6 text-5xl lg:grid-cols-3">
         <div
-          className="col-span-2 md:h-[260px] h-[300px]"
+          className="col-span-2 h-[300px] md:h-[260px]"
           style={{
             backgroundImage: `url(${backgroundImage})`,
             backgroundSize: "cover",
@@ -42,7 +42,7 @@ export default function Home() {
             backgroundRepeat: "no-repeat",
           }}
         ></div>
-        <div className="lg:row-span-2 lg:col-auto row-auto col-span-2 order-5 lg:order-none bg-veryDarkBlue p-4">
+        <div className="order-5 col-span-2 row-auto bg-veryDarkBlue p-4 lg:order-none lg:col-auto lg:row-span-2">
           <div className="flex flex-col gap-2">
             <span className="text-[2rem] font-extrabold text-softOrange">
               New
@@ -50,7 +50,7 @@ export default function Home() {
             <div className="border-b border-[#5d5f79]">
               <motion.a
                 href="/"
-                className="text-[1rem] leading-[2.5rem] font-bold text-offWhite"
+                className="text-[1rem] font-bold leading-[2.5rem] text-offWhite"
                 whileHover={{
                   color: "#e9ab53",
                 }}
@@ -68,7 +68,7 @@ export default function Home() {
             <div className="border-b border-[#5d5f79]">
               <motion.a
                 href="/"
-                className="text-[1rem] leading-[2.5rem] font-bold text-offWhite"
+                className="text-[1rem] font-bold leading-[2.5rem] text-offWhite"
                 whileHover={{
                   color: "#e9ab53",
                 }}
@@ -87,7 +87,7 @@ export default function Home() {
             <div>
               <motion.a
                 href="/"
-                className="text-[1rem] leading-[2.5rem] font-bold text-offWhite"
+                className="text-[1rem] font-bold leading-[2.5rem] text-offWhite"
                 whileHover={{
                   color: "#e9ab53",
                 }}
@@ -106,21 +106,21 @@ export default function Home() {
           </div>
         </div>
         <div className="col-span-2 lg:col-auto">
-          <div className="md:w-64 w-72">
-            <span className="md:text-[3rem] md:leading-[3rem] text-[2.5rem] leading-[2.5rem] font-extrabold">
+          <div className="w-72 md:w-64">
+            <span className="text-[2.5rem] font-extrabold leading-[2.5rem] md:text-[3rem] md:leading-[3rem]">
               The Bright Future of Web 3.0?
             </span>
           </div>
         </div>
         <div className="col-span-2 lg:col-auto">
-          <div className="grid grid-rows-[1fr_auto] gap-4 justify-between h-full">
+          <div className="grid h-full grid-rows-[1fr_auto] justify-between gap-4">
             <p className="leading-6">
               We dive into the next evolution of the web that claims to put the
               power of the platforms back into the hands of the people. But is
               it really fulfilling its promise?
             </p>
             <motion.button
-              className="bg-softRed text-veryDarkBlue px-7 py-2 font-bold text-sm max-w-max inline-block tracking-widest"
+              className="inline-block max-w-max bg-softRed px-7 py-2 text-sm font-bold tracking-widest text-veryDarkBlue"
               whileHover={{
                 backgroundColor: "#00001a",
                 color: "#fffdfa",
@@ -135,10 +135,10 @@ export default function Home() {
             </motion.button>
           </div>
         </div>
-        <div className="col-span-2 lg:col-auto order-6 lg:order-none lg:mt-6 mt-0">
-          <div className="grid grid-cols-[auto,1fr] gap-4 items-center">
+        <div className="order-6 col-span-2 mt-0 lg:order-none lg:col-auto lg:mt-6">
+          <div className="grid grid-cols-[auto,1fr] items-center gap-4">
             <div
-              className="md:h-[100px] h-[120px] md:w-20 w-24"
+              className="h-[120px] w-24 md:h-[100px] md:w-20"
               style={{
                 backgroundImage: `url(${images.imageRetro})`,
                 backgroundSize: "cover",
@@ -146,7 +146,7 @@ export default function Home() {
                 backgroundRepeat: "no-repeat",
               }}
             ></div>
-            <div className="flex flex-col gap-2 justify-center">
+            <div className="flex flex-col justify-center gap-2">
               <span className="text-[2rem] font-bold text-softRed">01</span>
               <motion.a
                 href="/"
@@ -168,10 +168,10 @@ export default function Home() {
           </div>
         </div>
 
-        <div className="col-span-2 lg:col-auto order-7 lg:order-none lg:mt-6 mt-0">
-          <div className="grid grid-cols-[auto,1fr] gap-4 items-center">
+        <div className="order-7 col-span-2 mt-0 lg:order-none lg:col-auto lg:mt-6">
+          <div className="grid grid-cols-[auto,1fr] items-center gap-4">
             <div
-              className="md:h-[100px] h-[120px] md:w-20 w-24"
+              className="h-[120px] w-24 md:h-[100px] md:w-20"
               style={{
                 backgroundImage: `url(${images.imageLaptop})`,
                 backgroundSize: "cover",
@@ -179,7 +179,7 @@ export default function Home() {
                 backgroundRepeat: "no-repeat",
               }}
             ></div>
-            <div className="flex flex-col gap-2 justify-center">
+            <div className="flex flex-col justify-center gap-2">
               <span className="text-[2rem] font-bold text-softRed">02</span>
               <motion.a
                 href="/"
@@ -201,10 +201,10 @@ export default function Home() {
           </div>
         </div>
 
-        <div className="col-span-2 lg:col-auto order-8 lg:order-none lg:mt-6 mt-0">
-          <div className="grid grid-cols-[auto,1fr] gap-4 items-center">
+        <div className="order-8 col-span-2 mt-0 lg:order-none lg:col-auto lg:mt-6">
+          <div className="grid grid-cols-[auto,1fr] items-center gap-4">
             <div
-              className="md:h-[100px] h-[120px] md:w-20 w-24"
+              className="h-[120px] w-24 md:h-[100px] md:w-20"
               style={{
                 backgroundImage: `url(${images.imageGaming})`,
                 backgroundSize: "cover",
@@ -212,7 +212,7 @@ export default function Home() {
                 backgroundRepeat: "no-repeat",
               }}
             ></div>
-            <div className="flex flex-col gap-2 justify-center">
+            <div className="flex flex-col justify-center gap-2">
               <span className="text-[2rem] font-bold text-softRed">03</span>
               <motion.a
                 href="/"
